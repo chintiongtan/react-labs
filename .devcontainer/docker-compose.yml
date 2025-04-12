@@ -1,0 +1,20 @@
+services:
+  reactlab-devcontainer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: sleep infinity
+    container_name: reactlab-devcontainer
+    image: reactlab-devcontainer
+    networks:
+      - reactlab
+    volumes:
+      - reactlab-devcontainer:/workspaces:cached
+
+networks:
+  reactlab:
+    driver: bridge
+
+volumes:
+  reactlab-devcontainer:
+    driver: local
